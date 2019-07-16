@@ -1,0 +1,35 @@
+{% extends "base.html" %} {% block content %}
+{% if city %}
+<div class="mdl-card auto-margin mdl-textfield--full-width form-grid mdl-shadow--3dp margin-bottom-10 mdl-color--white margin-top-10">
+    <div class="mdl-grid margin-0 mdl-textfield--full-width justify-start padding-0">
+        <div class=" mdl-cell--3-col mdl-cell--1-offset-desktop mdl-cell--6-col-phone mdl-cell--8-col-tablet  mdl-typography--text-center">
+            <img src="{{city.coverUrl}}" alt="Cover art" class="city-img-detail" />
+        </div>
+        <div class=" mdl-cell--7-col mdl-cell--8-col-phone auto-margin city-header">
+            <h1 class="city-title">{{city.city_name}}</h1>
+
+            <div>
+                <span class="author-city-detail">{{city.region}}</span>
+            </div>
+            <div class="action-button">
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect mdl-color--white mdl-color-text--purple-A700 button-edit" onclick="location.href='{{url_for('edit_city_details', category = city.category, cityId = city.id)}}'">Edit City Details</button>
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect mdl-color--purple-A700 mdl-color-text--white button-delete" onclick="location.href='{{url_for('delete_city', category = city.category, cityId = city.id)}}'">Delete City</button>
+            </div>
+        </div>
+
+    </div>
+    <hr class="detail-content-line" />
+
+    <div class="city-description">
+        <div class="description-content margin-bottom-10">
+            {{city.description|safe}}
+        </div>
+
+    </div>
+
+</div>
+{% else %}
+  <span align="center" class="no-city-msg">Sorry! No City in Database With This Gatogory :(</span>
+{% endif %}
+
+{% endblock %}

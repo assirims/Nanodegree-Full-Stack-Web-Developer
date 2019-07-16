@@ -1,0 +1,317 @@
+regionmain {
+    background: #f5f5f5;
+}
+
+.add-button {
+    position: fixed;
+    display: block;
+    right: 0;
+    bottom: 0;
+    margin-right: 40px;
+    margin-bottom: 40px;
+    z-index: 900;
+}
+
+/* .mdl-layout__header-row {
+  background: #7e7c7c;
+}
+
+.material-icons {
+  background: #7e7c7c;
+}
+
+.mdl-button__ripple-container {
+  background: #7e7c7c;
+} */
+
+.demo-card-wide.mdl-card {
+    width: 165px;
+    display: inline-block;
+    margin: 3vh 1em;
+    transition: all 0.4s ease-in-out;
+}
+
+.demo-card-wide>.mdl-card__title {
+    color: #fff;
+    height: 245px;
+}
+
+.demo-card-wide>.mdl-card__menu {
+    color: #fff;
+}
+
+.login-button {
+    line-height: 0 !important;
+}
+
+.mdl-grid {
+    display: flex;
+    max-width: 65vw;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+.form-grid {
+    max-width: 60vw;
+}
+
+.item-form {
+    margin-left: 10vw;
+}
+
+.input-field-text {
+    width: 40vw !important;
+}
+
+.input-button+.input-button {
+    margin-left: 3vw;
+}
+
+.input-button {
+    margin: 5vh 0 5vh 0;
+}
+
+.margin-top-10 {
+    margin-top: 10vh !important;
+}
+
+.margin-top-5 {
+    margin-top: 5vh;
+}
+
+.login-dialog {
+    width: 30vw;
+}
+
+.action-button {
+    margin: 8vh 0 10px 10px;
+}
+
+.auto-margin {
+    margin: auto;
+}
+
+.link-fade {
+    bottom: 0px;
+    color: rgb(33, 33, 33);
+    display: block;
+    height: 18px;
+    left: 0px;
+    max-height: 36px;
+    min-height: 18px;
+    position: relative;
+    right: 0px;
+    text-align: left;
+    text-decoration: none;
+    text-rendering: optimizeLegibility;
+    top: 0px;
+    white-space: nowrap;
+    width: 140px;
+    column-rule-color: rgb(33, 33, 33);
+    perspective-origin: 70px 9px;
+    transform-origin: 70px 9px;
+    border: 0px none rgb(33, 33, 33);
+    font: normal normal 300 normal 16px / 18px Roboto, UILanguageFont, Arial, sans-serif;
+    outline: rgb(33, 33, 33) none 0px;
+    overflow: hidden;
+}
+
+.span-fade {
+    height: 18px;
+    left: 95px;
+    max-height: 100%;
+    position: absolute;
+    right: 0px;
+    text-align: left;
+    text-rendering: optimizeLegibility;
+    top: 0px;
+    white-space: nowrap;
+    width: 45px;
+    column-rule-color: rgb(33, 33, 33);
+    perspective-origin: 22.5px 9px;
+    transform-origin: 22.5px 9px;
+    background: rgba(0, 0, 0, 0) linear-gradient(to right, rgba(255, 255, 255, 0), rgb(255, 255, 255)) repeat scroll 0% 0% / auto padding-box border-box;
+    border: 0px none rgb(33, 33, 33);
+    font: normal normal 300 normal 16px / 18px Roboto, UILanguageFont, Arial, sans-serif;
+    outline: rgb(33, 33, 33) none 0px;
+}
+
+.city-region {
+    color: rgb(97, 97, 97);
+    display: inline-block;
+    height: 16px;
+    max-width: 132px;
+    text-align: left;
+    text-decoration: none;
+    text-rendering: optimizeLegibility;
+    white-space: nowrap;
+    width: 132px;
+    font: normal normal 300 normal 13px / 16px Roboto, UILanguageFont, Arial, sans-serif;
+    margin: 1vh 0px;
+    overflow: hidden;
+}
+
+.page-title {
+  text-decoration: none !important;
+}
+
+.no-city-msg {
+    margin-top: 40vh;
+    line-height: 1.2;
+    font-size: 24px;
+    color: #4f4f52;
+}
+
+.brighten {
+    -webkit-filter: brightness(100%);
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+    cursor: pointer;
+}
+
+.brighten:hover {
+    -webkit-filter: brightness(50%);
+}
+
+.margin-0 {
+    margin: 0;
+}
+
+.city-img-detail {
+    box-shadow: rgb(141, 141, 141) 0px 0px 4px 0px;
+    height: 200.663px;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+}
+
+.city-header {
+    box-sizing: border-box;
+    vertical-align: top;
+    font: normal normal 300 normal 13px / 18.2px Roboto, UILanguageFont, Arial, sans-serif;
+}
+
+.city-title {
+    text-align: left;
+    font: normal normal 300 normal 24px / 26px Roboto, UILanguageFont, Arial, sans-serif;
+    margin: 10px 0 10px 10px;
+    outline: rgb(33, 33, 33) none 0px;
+}
+
+.city-region-detail {
+    text-align: left;
+    text-rendering: optimizeLegibility;
+    text-decoration: none;
+    color: rgb(97, 97, 97);
+    white-space: nowrap;
+    border: 0px none rgb(97, 97, 97);
+    font: normal normal bold normal 16px / 20.2px Roboto, UILanguageFont, Arial, sans-serif;
+    margin: 10px 0 10px 10px;
+    outline: rgb(97, 97, 97) none 0px;
+}
+
+.button-edit, .button-delete {
+    height: 36px;
+    font: normal normal 500 normal 14px / 36px Roboto, sans-serif;
+    margin: 2vh 10px 5px 0;
+    padding: 0px 20px;
+    cursor: pointer;
+}
+
+.justify-start {
+    max-width: 100%;
+    justify-content: flex-start;
+}
+
+.padding-0 {
+    padding-left: 0;
+}
+
+.detail-content-line {
+    margin-left: 1em;
+    margin-right: 1em;
+    border-top: 2px solid #CCC;
+}
+
+.city-description {
+    background: #fff;
+    padding: 0 50px 0 50px;
+    box-sizing: border-box;
+    display: block;
+    position: relative;
+    text-align: left;
+    width: 100%;
+    line-height: 24px;
+}
+
+.description-content {
+    max-width: 1020px;
+    margin: 5vh auto 10vh auto;
+}
+
+.margin-bottom-10 {
+    margin-bottom: 10vh;
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    font-weight: 300;
+    color: #333;
+    font-family: "Roboto", sans-serif;
+}
+
+@media only screen and (max-width: 500px) {
+    .login-dialog {
+        width: 75vw;
+    }
+    .demo-card-wide.mdl-card {
+        margin: 3vh auto 3vh auto;
+    }
+    .form-grid {
+        max-width: 85vw;
+    }
+    .action-button {
+        margin-top: 5vh;
+    }
+    .city-description {
+        padding: 0 30px 0 30px;
+    }
+    .description-content {
+        margin-bottom: 5vh;
+    }
+    .no-city-msg{
+        margin-top: 30vh;
+    }
+    .item-form{
+        margin-left: 5vw;
+    }
+    .input-field-text {
+        width: 95% !important;
+    }
+}
+
+.circle {
+  border-radius: 50%;
+}
+
+.padding-user-info {
+  padding: 5px 10px 5px 10px !important;
+}
+
+.userName {
+  font-size: 1.2rem !important;
+  margin-left: 1vw;
+}
+
+.userEmail {
+    word-wrap: break-word;
+    color: #757575;
+    margin-top: 10px !important;
+}

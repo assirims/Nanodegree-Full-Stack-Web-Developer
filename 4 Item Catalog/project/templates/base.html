@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-signin-client_id" content="557594200934-a6rm3u70iu50gabab2odpvaj0ir7cl0u.apps.googleusercontent.com">
+    <title>Item Catalog</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.min.css" />
+    <link rel="stylesheet" href="{{ url_for('static',filename = 'css/style.css') }}" />
+    <link rel="stylesheet" href="https://cdn.rawgit.com/CreativeIT/getmdl-select/master/getmdl-select.min.css">
+    <!--Import Font Awesome Icons -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <!--scripts-->
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script defer src="https://cdn.rawgit.com/CreativeIT/getmdl-select/master/getmdl-select.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+</head>
+<!-- Always shows a header, even in smaller screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header header-color">
+        <div class="mdl-layout__header-row">
+
+            <!-- Title -->
+            {% if currentPage == 'main' or currentPage == 'detail' %}
+            <a href="{{url_for('show_cities')}}" class="mdl-color-text--white page-title"><span class="mdl-layout-title">City Catalogue</span></a>
+            {% else %}
+            <span class="mdl-layout-title">{{title}}</span>
+            {% endif %}
+            <!-- Add spacer, to align navigation to the right -->
+            <div class="mdl-layout-spacer"></div>
+            <!-- Navigation. We hide it in small screens. -->
+            <nav class="mdl-navigation mdl-layout--large-screen-only">
+              {% if currentPage == 'main' %}
+                <a class="mdl-navigation__link" href="{{url_for('sort_cities', category='Southern Region')}}">Southern Region</a>
+                <a class="mdl-navigation__link" href="{{url_for('sort_cities', category='Northern Region')}}">Northern Region</a>
+                <a class="mdl-navigation__link" href="{{url_for('sort_cities', category='Eastern Region')}}">Eastern Region</a>
+                <a class="mdl-navigation__link" href="{{url_for('sort_cities', category='West Region')}}">West Region</a>
+                <a class="mdl-navigation__link" href="{{url_for('sort_cities', category='Centeral Region')}}">Centeral Region</a>
+                <a class="mdl-navigation__link" href="{{url_for('sort_cities', category='Other')}}">Other</a>
+              {% endif %}
+                <!-- Colored raised button -->
+                <button id="googleSignInCustom" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect mdl-color--white login-button-color signInButton">Login</button>
+                <button id="logout_button1" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect mdl-color--white login-button-color">Logout</button>
+            </nav>
+        </div>
+    </header>
+    <div class="mdl-layout__drawer">
+      <span class="mdl-layout-title signOutButtonTitle">Account</span>
+      <nav class="mdl-navigation" id="user_info">
+        <div>
+          <a class="mdl-navigation__link padding-user-info">
+            <img id="userImg" class="circle" width="50" height="50" src="{{ login_session['img'] }}">
+            <span id="userName" class="userName">{{ login_session['name'] }}</span>
+            <p id="userEmail" class="userEmail">{{ login_session['email'] }}</p>
+          </a>
+          <a id="logout_button" class="mdl-navigation__link">Logout</a>
+        </div>
+      </nav>
+        <span class="mdl-layout-title">Genres</span>
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="{{url_for('sort_cities', category='Southern Region')}}">Southern Region</a>
+          <a class="mdl-navigation__link" href="{{url_for('sort_cities', category='Northern Region')}}">Northern Region</a>
+          <a class="mdl-navigation__link" href="{{url_for('sort_cities', category='Eastern Region')}}">Eastern Region</a>
+          <a class="mdl-navigation__link" href="{{url_for('sort_cities', category='West Region')}}">West Region</a>
+          <a class="mdl-navigation__link" href="{{url_for('sort_cities', category='Centeral Region')}}">Centeral Region</a>
+          <a class="mdl-navigation__link" href="{{url_for('sort_cities', category='Other')}}">Other</a>
+        </nav>
+        <span class="mdl-layout-title signInButtonTitle">Account</span>
+        <nav class="mdl-navigation">
+          <div id="googleSignIn" class="mdl-navigation__link signInButton">Login</div>
+        </nav>
+    </div>
+    <main class="mdl-layout__content">
+        <div class="page-content">
+
+          <!--all content will go here-->
+          {% block content %}
+          {% endblock %}
+          {% if currentPage=='main' or currentPage=='detail' %}
+            <!-- Colored FAB button with ripple -->
+            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored add-button add-button-color" id="add-button" onclick="location.href='{{url_for('new_city')}}'">
+              <i class="material-icons">add</i>
+            </button>
+            <div class="mdl-tooltip" data-mdl-for="add-button"><strong>Add Item</strong></div>
+          {% endif %}
+
+        </div>
+    </main>
+</div>
+
+  <div aria-live="assertive" aria-atomic="true" aria-relevant="text" class="mdl-snackbar mdl-js-snackbar">
+    <div class="mdl-snackbar__text"></div>
+    <button type="button" class="mdl-snackbar__action"></button>
+  </div>
+<script>
+    var state = '{{state}}'
+    var logged = "{{ login_session['provider'] }}"
+</script>
+<script src="https://apis.google.com/js/platform.js"></script>
+<script>
+  var pageColor = {
+    'main': ['mdl-color--red-400', 'mdl-color-text--red-400'],
+    'new': ['mdl-color--teal', 'mdl-color-text--teal'],
+    'edit': ['mdl-color--orange-A700', 'mdl-color-text--orange-A700'],
+    'detail': ['mdl-color--purple-A700', 'mdl-color-text--purple-A700']
+  };
+
+  $('.header-color').addClass(pageColor.{{ currentPage }}[0]);
+  $('.login-button-color').addClass(pageColor.{{ currentPage }}[1]);
+  $('.add-button-color').addClass(pageColor.{{ currentPage }}[0]);
+  $('.dialog-color').addClass(pageColor.{{ currentPage }}[0]);
+
+</script>
+<script src="{{ url_for('static',filename = 'js/app.js') }}"></script>
+{% if errorMsg %}
+<script>
+  r(function(){
+    var errorMsg = document.querySelector('.mdl-js-snackbar');
+      errorMsg.MaterialSnackbar.showSnackbar(
+        {
+          message: "{{errorMsg}}"
+        }
+      );
+  });
+  function r(f){/in/.test(document.readyState)?setTimeout('r('+f+')',9):f()}
+  </script>
+{% endif %}
+</body>
+</html>
